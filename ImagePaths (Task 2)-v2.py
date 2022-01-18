@@ -46,25 +46,24 @@ logging.debug(f"Target output folder: {path_output}")
 # %% Load data
 logging.debug("Loading {}".format(path_input_file))
 
+test_x = []
+
 with open(path_input_file, 'rb') as fh:
     archive = ZipFile(fh, 'r')
+    archive_file = archive.namelist()
+    for img in archive_file:
+        if (img.endswith(".jpg")):
+            pics = archive.open(img)
+            image = Image.open(pics)
+            image.load()
+            test_x.append(image)
 
-logging.debug("Loaded {} records into DataFrame".format(len(df)))
 
-
-archive_file = archive.namelist()
+#logging.debug("Loaded {} records into DataFrame".format(len(df)))
 
 #num of files to test (there are total of 413701 files)
 #test_size = 413701
   
-test_x = []
-
-for img in archive_file:
-    if (img.endswith(".jpg")):
-        pics = archive.open(img)
-        image = Image.open(pics)
-        image.load()
-        test_x.append(image)
         
 logging.debug("Built summary of records.")
 
