@@ -82,7 +82,7 @@ pop_cars = pop_cars.rename(columns={"mileage": "Mileage", "make": "Make", "model
 
 logging.debug("Built summary of records.")
 
-dfvo.to_csv(path_output_file)
+pop_cars.to_csv(path_output_file)
 
 logging.debug("Wrote results to {}".format(path_output_file))
 
