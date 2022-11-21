@@ -63,10 +63,11 @@ for num in arr:
     else:
         print(num, " can't be checked, because its smaller than 1")
         
-        
+df2 = pd.DataFrame(primes) 
+
 logging.debug("Built summary of records.")
 
-primes.to_csv(path_output_file)
+df2.to_csv(path_output_file,index=False)
 
 logging.debug("Wrote results to {}".format(path_output_file))
 
