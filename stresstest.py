@@ -60,8 +60,7 @@ for num in arr:
                 break
         else:
             primes.append(num)
-    else:
-        print(num, " can't be checked, because its smaller than 1")
+
         
 df2 = pd.DataFrame(primes) 
 
